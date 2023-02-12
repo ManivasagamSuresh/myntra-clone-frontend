@@ -1,0 +1,93 @@
+.cart-nav{
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    height: 60px;
+    border-bottom:1px solid rgba(229, 228, 226, 1);
+}
+.cart-c{
+    background-color: #FAF9F6;
+    /* ; */
+    height: 100vh;
+}
+.cart-myntra{
+    height: 30px;
+    width: 50px;
+    margin-left: 30px;
+    margin-top: 15px;
+}
+.cart-secure{
+    margin-right: 30px;
+}
+.cart-left{
+    padding: 50px;
+}
+.cart-address{
+    display: flex;
+    justify-content: space-between;
+}
+.cart-addressname{
+    font-weight: 650;
+    /* font-size: 12px; */
+    color: black;
+}
+.cart-changeaddress{
+    color: rgba(241,58,131,0.8);
+    border:1px solid rgba(241,58,131,0.8);
+    background-color: #FAF9F6;
+    border-radius: 3px;
+    margin-top: 10px;
+}
+.cart-addressmain{
+    font-size: 13px;
+}
+.cart-address{
+    border: 1px solid rgba(229, 228, 226);
+    border-radius: 7px;
+    padding: 10px 20px;
+    margin: 10px 0px;
+    color: gray;
+}
+.cart-noconvenience{
+    border: 1px solid rgba(229, 228, 226);
+    border-radius: 5px;
+    padding: 10px 20px ;
+    margin: 10px 0px;
+    color: gray;
+}
+.cart-noconveniencefee{
+    font-weight: 500;
+    color: black;
+}
+.cart-card{
+    border: 1px solid rgba(229, 228, 226);
+    border-radius: 5px;
+    padding: 20px 20px ;
+}
+.cart-placeorder{
+    /* padding: 30px; */
+    border: 1px solid rgba(229, 228, 226);
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 20px ;
+    width: 90%; 
+}
+.cart-pricedetail{
+    font-size: 14px;
+    font-weight: 700;
+    color: rgba(0,0,0,0.6);
+}
+.cart-mrp{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0px;
+    /* color: gray; */
+    font-size: 14px;
+}
+.cart-button{
+    border: none;
+    color: white;
+    background-color: rgba(241,58,131,0.8);
+    font-weight: 600;
+    width: 100%;
+}

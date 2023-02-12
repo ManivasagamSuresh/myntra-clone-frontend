@@ -13,14 +13,22 @@ function Products() {
       <div className='col-lg-12'>
           <div className='products-filter'>
             <select className='products-filterselect'>
-              <option>products-filter</option>
-              <option>products-filter</option>
-              <option>products-filter</option>
+            <option>--Category--</option>
+              <option>T-Shirts</option>
+              <option>Shirts</option>
+              <option>Chudi</option>
+              <option>Tops</option>
+              <option>Shoes</option>
+              <option>Sports</option>
+              <option>Jeans</option>
+              <option>Pants</option>
+              <option>Kids</option>
             </select>
             <select className='products-filterselect'>
-              <option>products-filter</option>
-              <option>products-filter</option>
-              <option>products-filter</option>
+              <option>--Sort--</option>
+              <option>Price: Low to High</option>
+              <option>Price: high to Low</option>
+              <option>What's New</option>
             </select>
           </div>
         </div>

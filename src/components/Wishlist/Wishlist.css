@@ -1,0 +1,11 @@
+.wishlist{
+    background-color: #FAF9F6
+}
+
+.wishlist-count{
+    font-weight: bold;
+    
+}
+.wishlist-desc{
+    margin: 20px  !important;
+}

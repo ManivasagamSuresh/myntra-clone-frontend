@@ -7,8 +7,8 @@ function Productcard() {
   const [Wishlist,setWishlist]=useState(false);
   return (
     <div className='col-lg-3 productcard' onMouseEnter={()=>{setWishlist(true)}} onMouseLeave={()=>{setWishlist(false)}}>
-      {Wishlist ? <div className='productcard-wishlist'><button className='productcard-wishlistbutton'><CiHeart/> Wishlist</button></div> : null}
-      <img src={ref} className="productcard-img"/>
+      {Wishlist ? <div className='productcard-wishlist'><button type='button' className='productcard-wishlistbutton'><CiHeart/> Wishlist</button></div> : null}
+      <img src={ref} className="productcard-img" />
       <div className='productcard-details'>
         <div className='productcard-brand'>Brand</div>
         <div className='productcard-desc'>Description</div>

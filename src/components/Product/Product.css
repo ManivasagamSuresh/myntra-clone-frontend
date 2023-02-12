@@ -1,0 +1,80 @@
+.product{
+    /* margin: 70px 0 ; */
+    background-color: #FAF9F6;
+    padding: 70px;
+}
+.product-img{
+    margin: 0px 100px;
+}
+.product-details{
+    padding-left: 15px;
+}
+.product-brand{
+ font-size: 30px;
+ font-weight: bold;
+}
+.product-desc{
+    
+    color: rgb(169,169,169)
+}
+.product-hr{
+    margin: 30px 0;
+}
+.product-price{
+    font-weight: bold;
+
+}
+.product-buttons{
+    margin-top: 20px;
+}
+.product-heartfill{
+    color: rgb(255,0,0,0.7);
+}
+.product-button1{
+    border: none;
+    margin: 20px 20PX 20PX 0;
+    background-color: rgba(241,58,131);
+    padding: 10px 30px;
+    border-radius: 4px;
+    color: white;
+    font-weight: 600;
+    width: 250px;
+  
+}
+.product-button2{
+    border: 1px solid rgb(169,169,169) ;
+    /* margin: 10px; */
+    background-color: transparent;
+    padding: 10px 30px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+.product-button3{
+    border: 1px solid rgb(169,169,169) ;
+    margin-right: 20px;
+    background-color: transparent;
+    padding: 10px 30px;
+    border-radius: 4px;
+    font-weight: 500;
+    
+}
+.product-button4{
+    border: 1px solid rgb(169,169,169) ;
+    margin-right: 20px;
+    background-color: transparent;
+    padding: 10px 30px;
+    border-radius: 4px;
+    font-weight: 500;
+    color: red;
+}
+
+.product-otherinfo{
+    color: rgb(0,0,0,0.5);
+    margin-top: 50px;
+    font-size: 17px;
+    line-height: 25px;
+}
+.product-otherinfoH{
+    color: rgb(241,58,131) !important;
+    font-weight: 500;
+}

@@ -1,0 +1,40 @@
+.Address-C{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(241,58,131,0.1);
+    height: 100vh;
+    border: 1px solid rgba(229, 228, 226);
+}
+
+.addressform{
+    width: 350px !important;
+    border: 1px solid rgba(229, 228, 226);
+    padding: 20px;
+    position: relative;
+}
+.address-button{
+    border: none;
+    color: white;
+    background-color: rgba(241,58,131,0.8);
+    font-weight: 600;
+    width: 100%;
+    margin-top: 30px ;
+    border-radius: 7px;
+
+}
+.address-remove{
+position: absolute;
+background-color: white;
+width: 25px;
+height: 25px;
+border-radius: 50%;
+right: 20px;
+top: 10px;
+cursor: pointer;
+}
+.address-removeX{
+    position: relative;
+    left: 7.5px;
+    color: gray;
+}

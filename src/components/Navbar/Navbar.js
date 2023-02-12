@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.css";
 import myntra from "../../images/myntra.png";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { BsPerson } from "react-icons/bs";
 import { BsHeart } from "react-icons/bs";
 import { BsHandbag } from "react-icons/bs";
+import { AiOutlineFolderAdd } from 'react-icons/ai';
+import Addproduct from "../addproduct/Addproduct";
 
 function Navbar() {
+  const [Open,setOpen]=useState(false);
   return (
+    <>
+    {Open ? <Addproduct setOpen={setOpen}/>:
+    
     <div className="container">
       <nav className="navbar navbar-expand-lg">
         <div className="container-fluid">
@@ -69,13 +75,18 @@ function Navbar() {
               </li>
               <li className="nav-item navbar-icons-li">
                 <BsHandbag size={"1.2em"} />
-                <div className="navbar-icon-desc">Cart</div>
+                <div className="navbar-icon-desc">Bag</div>
+              </li>
+              <li className="nav-item navbar-icons-li">
+                <AiOutlineFolderAdd size={"1.2em"} onClick={()=>{setOpen(true)}}/>
+                <div className="navbar-icon-desc">Add product</div>
               </li>
             </ul>
           </div>
         </div>
       </nav>
-    </div>
+    </div>}
+    </>
   );
 }
 
