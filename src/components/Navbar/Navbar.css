@@ -1,0 +1,56 @@
+.navbar{
+    height: 80px !important;
+     /* background-color: whitesmoke; */
+    padding: 15px;
+    
+}
+.nav-item{
+    margin-left: 30px;
+    position: relative;    
+}
+.nav-link{
+    color: #36454F !important;
+    font-size: 15px !important;
+    font-weight:500 !important;
+}
+/* .nav-link::after{
+    content: "" !important;
+    width: 100% !important;
+    background-color: #f13ab1 !important;
+    position: absolute !important;
+    left: 0 !important;
+    bottom: -6px !important;
+    transition: 0.3 !important;
+    opacity: 1 !important;
+} */
+
+.navbar-myntra-image{
+    height: 30px;
+    width: 50px;
+    margin-right: 30px;
+    margin-top: 5px;
+}
+.navbar-search-input{
+    width: 250px !important;
+    outline: none !important;
+}
+.navbar-search{
+    border: none;
+    background-color: white;
+    position: relative;
+    right: 40px;
+    height: 20px;
+    top: 5px;
+}
+
+.navbar-icons-li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.navbar-icon-desc{
+    font-size: 12px !important;
+}

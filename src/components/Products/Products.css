@@ -1,0 +1,14 @@
+.products{
+    background-color: #FAF9F6;
+}
+.products-filter{
+    display: flex;
+    justify-content: flex-end;
+    
+}
+.products-filterselect{
+    margin: 20px 30px;
+    border-radius: 7px;
+    border: 1px solid #E2DFD2;
+    padding: 7px;
+}
