@@ -1,6 +1,6 @@
 .navbar{
     height: 80px !important;
-     /* background-color: whitesmoke; */
+     background-color: white !important;
     padding: 15px;
     border-bottom: 1px solid rgba(229, 228, 226,0.5);
 }
@@ -13,22 +13,13 @@
     font-size: 15px !important;
     font-weight:500 !important;
 }
-/* .nav-link::after{
-    content: "" !important;
-    width: 100% !important;
-    background-color: #f13ab1 !important;
-    position: absolute !important;
-    left: 0 !important;
-    bottom: -6px !important;
-    transition: 0.3 !important;
-    opacity: 1 !important;
-} */
 
 .navbar-myntra-image{
     height: 30px;
     width: 50px;
     margin-right: 30px;
     margin-top: 5px;
+    cursor: pointer;
 }
 .navbar-search-input{
     width: 250px !important;
@@ -53,4 +44,10 @@
 
 .navbar-icon-desc{
     font-size: 12px !important;
+}
+#navbarSupportedContent{
+    /* position: abso?lute; */
+    /* top: 70px; */
+    z-index: 1;
+    background-color: white;
 }

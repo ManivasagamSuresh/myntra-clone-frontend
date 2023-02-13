@@ -14,9 +14,9 @@ function Homecard() {
   return (
     <div className=' Homecard'>
         <div className='row'>
-    <div className='col-lg-12'>
-        <div className='Homecard-info'>
-        <span>❤️ ❤️ ❤️ </span><span className='Homecard-heading'>SHOP BY CATEGORY</span><span> ❤️ ❤️ ❤️</span> 
+    <div className='col-lg-12 Homecard-info'>
+        <div className=''>
+        <span>❤️❤️</span><span className='Homecard-heading'>SHOP BY CATEGORY</span><span>❤️❤️</span> 
         </div>
         </div>
         </div>

@@ -13,6 +13,8 @@ import Signin from './components/Signin/Signin';
 import Product from './components/Product/Product';
 import Addproduct from './components/addproduct/Addproduct';
 import Address from './components/Address/Address';
+import Editproduct from './components/Editproduct/Editproduct';
+
 
 function App() {
   return (
@@ -25,7 +27,9 @@ function App() {
       <Route path='/cart' element={<Cart/>}/>
       <Route path='/signup' element={<Signup/>}/>
       <Route path='/signin' element={<Signin/>}/> 
-      <Route path='/address' element={<Address/>}/>      
+      <Route path='/address' element={<Address/>}/> 
+      <Route path='/editproduct/:id' element={<Editproduct/>}/> 
+      
       </Routes>
       
     

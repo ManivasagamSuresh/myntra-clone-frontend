@@ -6,19 +6,23 @@ import ref from "../../images/ref.jpg"
 import { BsHeart } from "react-icons/bs";
 import { BsHeartFill } from "react-icons/bs";
 import { BsHandbag } from "react-icons/bs";
+import { useNavigate, useParams } from 'react-router-dom'
 
 
 
 function Product() {
-    const [Wish,setWish] = useState(true)
-    const[Admin,setAdmin]=useState(true);
+  const navigate = useNavigate();
+  const params = useParams(); 
+  const [Wish,setWish] = useState(true);
+    const[Admin,setAdmin]=useState(false);
+   
   return (
     <>
     <Navbar/>
     <div className='container'>
     <div className='row product'>
         <div className='col-lg-6 product-i'>
-        <img src={ref} alt="" height={"350px"} width="290px" className='product-img'/>
+        <img src={ref} alt="" height={"100%"} width="100%" className='product-img'/>
         </div>
         <div className='col-lg-6 product-details'>
             <div className='product-brand'>Brand</div>
@@ -27,7 +31,7 @@ function Product() {
             <div className='product-price'>{`MRP ₹ ${21}`}</div>
             <div className='product-buttons'>
                 {Admin ? <>
-                  <button type='button' className='product-button3'> UPDATE PRODUCT</button>
+                  <button type='button' className='product-button3' onClick={()=>{navigate(`/editproduct/${params.id}`)}}> UPDATE PRODUCT</button>
                 <button type='button' className='product-button4'>DELETE PRODUCT</button>
                 </>
                 :<>

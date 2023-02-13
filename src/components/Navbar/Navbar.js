@@ -10,14 +10,15 @@ import Addproduct from "../addproduct/Addproduct";
 
 function Navbar() {
   const [Open,setOpen]=useState(false);
+  const [Admin,setAdmin]=useState(false)
   return (
     <>
     {Open ? <Addproduct setOpen={setOpen}/>:
     
     <div className="container">
-      <nav className="navbar navbar-expand-lg">
+      <nav className="navbar navbar-expand-lg ">
         <div className="container-fluid">
-        <img src={myntra} className="navbar-myntra-image" />
+        <img src={myntra} className="navbar-myntra-image " />
           <button
             className="navbar-toggler"
             type="button"
@@ -36,12 +37,12 @@ function Navbar() {
               
 
               <li className="nav-item">
-                <a className="nav-link active" aria-current="pa ge" href="#">
+                <a className="nav-link active"  href="#">
                   MEN
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link active" href="#">
+                <a className="nav-link active"  href="#">
                   WOMEN
                 </a>
               </li>
@@ -69,18 +70,25 @@ function Navbar() {
                 <div className="navbar-icon-desc">profile</div>
                 </div>
               </li>
+              {Admin ?
               <li className="nav-item navbar-icons-li">
+              <AiOutlineFolderAdd size={"1.2em"} onClick={()=>{setOpen(true)}}/>
+              <div className="navbar-icon-desc">Add product</div>
+            </li>
+              :
+                  <>
+                    <li className="nav-item navbar-icons-li">
                 <BsHeart size={"1.1em"} />
                 <div className="navbar-icon-desc">Wishlist</div>
               </li>
               <li className="nav-item navbar-icons-li">
                 <BsHandbag size={"1.2em"} />
                 <div className="navbar-icon-desc">Bag</div>
-              </li>
-              <li className="nav-item navbar-icons-li">
-                <AiOutlineFolderAdd size={"1.2em"} onClick={()=>{setOpen(true)}}/>
-                <div className="navbar-icon-desc">Add product</div>
-              </li>
+              </li>    
+                  </>
+              }
+              
+              
             </ul>
           </div>
         </div>
