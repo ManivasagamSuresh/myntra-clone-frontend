@@ -21,7 +21,7 @@ function Products() {
               <option>Shoes</option>
               <option>Sports</option>
               <option>Jeans</option>
-              <option>Pants</option>
+              
               <option>Kids</option>
             </select>
             <select className='products-filterselect'>

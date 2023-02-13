@@ -51,3 +51,19 @@
     z-index: 1;
     background-color: white;
 }
+.navbar-profile{
+    background-color: white;
+    width: 150px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    position: absolute;
+    
+    top: 50px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Times New Roman', Times, serif;
+    cursor: pointer;
+    padding: 10px;
+    color: gray;
+    z-index: 1;
+}

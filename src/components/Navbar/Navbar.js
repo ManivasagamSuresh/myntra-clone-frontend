@@ -7,13 +7,28 @@ import { BsHeart } from "react-icons/bs";
 import { BsHandbag } from "react-icons/bs";
 import { AiOutlineFolderAdd } from 'react-icons/ai';
 import Addproduct from "../addproduct/Addproduct";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../redux/Userslice";
 
 function Navbar() {
-  const [Open,setOpen]=useState(false);
-  const [Admin,setAdmin]=useState(false)
+  const {currentUser}=useSelector(state=>state.user);
+  const dispatch = useDispatch();
+  console.log(currentUser);
+  const navigate = useNavigate();
+  const [OpenV,setOpenV]=useState(false);
+  const [OpenP,setOpenP]=useState(false);
+  const [Admin,setAdmin]=useState(true);
+
+const signout = async()=>{
+  dispatch(logout());
+  localStorage.clear("accessToken");
+  navigate('/');
+}
+
   return (
     <>
-    {Open ? <Addproduct setOpen={setOpen}/>:
+    {OpenV ? <Addproduct setOpen={setOpenV}/>:
     
     <div className="container">
       <nav className="navbar navbar-expand-lg ">
@@ -64,15 +79,31 @@ function Navbar() {
               </button>
             </form>
             <ul className="navbar-nav me-auto mb-2 mb-lg-0 navbar-icons-ul">
-              <li className="nav-item ">
+              <li className="nav-item " >
                 <div className="navbar-icons-li">
-                <BsPerson size={"1.2em"} />
-                <div className="navbar-icon-desc">profile</div>
+                <BsPerson size={"1.2em"} onClick={()=>{ OpenP ? setOpenP(false): setOpenP(true)}}/>
+                <div className="navbar-icon-desc" onClick={()=>{ OpenP ? setOpenP(false): setOpenP(true)}}>{currentUser ? `${currentUser.others.name}` : "profile"}</div>
+                {
+        OpenP ?
+        <div className="navbar-profile">
+            {
+              currentUser ? 
+              <div onClick={()=>{signout()}}>Logout</div> 
+              :
+              <>
+              <div onClick={()=>{navigate("/signin") ; setOpenP(false)}}>Login</div>
+            <div onClick={()=>{navigate("/signup") ; setOpenP(false)}}>Signup</div>
+              </>
+            }
+             
+      </div>
+      : null
+      }
                 </div>
               </li>
               {Admin ?
               <li className="nav-item navbar-icons-li">
-              <AiOutlineFolderAdd size={"1.2em"} onClick={()=>{setOpen(true)}}/>
+              <AiOutlineFolderAdd size={"1.2em"} onClick={()=>{setOpenV(true)}}/>
               <div className="navbar-icon-desc">Add product</div>
             </li>
               :
@@ -93,7 +124,10 @@ function Navbar() {
           </div>
         </div>
       </nav>
-    </div>}
+      
+    </div>
+    
+    }
     </>
   );
 }

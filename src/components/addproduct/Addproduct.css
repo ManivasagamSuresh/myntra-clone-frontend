@@ -39,3 +39,16 @@
     top: 5px;
     color: gray;
 }
+.error-box{
+    border: 1px solid red !important;
+}
+.success-box{
+    border: 1px solid green !important;
+}
+.error-span{
+    color: red;
+    font-size: small;
+    /* margin-bottom: 10px; */
+    position: relative;
+    bottom: 12px;
+}

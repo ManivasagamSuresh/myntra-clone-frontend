@@ -46,3 +46,16 @@
     color: white;
     font-weight: 500;
 }
+.error-box{
+    border: 1px solid red !important;
+}
+.success-box{
+    border: 1px solid green !important;
+}
+.error-span{
+    color: red;
+    font-size: small;
+    /* margin-bottom: 10px; */
+    position: relative;
+    bottom: 12px;
+}

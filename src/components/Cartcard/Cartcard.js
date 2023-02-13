@@ -13,6 +13,7 @@ function Cartcard() {
       </div>
       <div className="col-md-8">
         <div className="card-body">
+          <div className='cartcard-remove'>X</div>
           <h5 className="cartcard-title">Card title</h5>
           <p className="cartcard-text">This is a wider card with supporting text below as a natural</p>
           <div className='cartcard-qty'>Qty :

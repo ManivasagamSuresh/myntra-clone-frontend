@@ -46,3 +46,17 @@
     color: black;
     font-weight: 700;
 }
+.cartcard-remove{
+    background-color: rgba(0,0,0,0.1);
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    border-radius: 50%;
+    right: 15px;
+    top: 10px;
+    text-align: center;
+    font-weight: 500;
+}
+.cartcard-remove{
+
+}
