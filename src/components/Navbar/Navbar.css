@@ -12,6 +12,7 @@
     color: #36454F !important;
     font-size: 15px !important;
     font-weight:500 !important;
+    cursor: pointer;
 }
 
 .navbar-myntra-image{

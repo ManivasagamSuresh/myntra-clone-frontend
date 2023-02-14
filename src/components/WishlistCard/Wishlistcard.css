@@ -1,6 +1,6 @@
 .Wishlistcard{
     background-color: #FAF9F6;
-    height: 370px;
+    height: 400px;
     width: 250px;
     margin: 20px 20px 20px 15px;
     padding: 20px;
@@ -29,7 +29,7 @@
 .Wishlistcard-img{
     height: 230px;
     width: 100%;
-    object-fit: cover;
+    /* object-fit: cover; */
 }
 
 .Wishlistcard-Cart{
@@ -65,7 +65,7 @@
     margin-right: 15px; 
 }
 .Wishlistcard-desc{
-   
+   color: gray;
 }
 .Wishlistcard-price{
     font-weight: bold;

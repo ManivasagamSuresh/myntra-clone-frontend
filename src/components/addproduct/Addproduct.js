@@ -72,6 +72,7 @@ function Addproduct({setOpen}) {
         <input className={`form-control addproduct-inputs ${formik.touched.price && formik.errors.price ? 'error-box':""}
         ${formik.touched.price && !formik.errors.price ? 'success-box':""}`} placeholder='Price'
         name='price' 
+        type={"number"}
         onChange={formik.handleChange} 
         value={formik.values.price} 
         onBlur={formik.handleBlur}

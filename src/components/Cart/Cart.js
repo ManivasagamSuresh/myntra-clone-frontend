@@ -1,14 +1,27 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Cart.css"
 import { TbTruckDelivery } from 'react-icons/tb';
 import Cartcard from '../Cartcard/Cartcard';
 import secure from "../../images/secure.jpg"
 import myntra from "../../images/myntra.png"
 import Address from '../Address/Address';
+import { useSelector } from 'react-redux';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 function Cart() {
+  const {currentUser}=useSelector(state=>state.user);
   const [Open,setOpen]=useState(false);
+  const [cartItems,setCartItems]=useState([]);
+  const navigate = useNavigate();
+
+
+useEffect(()=>{
+  setCartItems(currentUser.others.cart)
+},[currentUser.others.cart])
+
+
   return (
     <>
     {
@@ -19,7 +32,7 @@ function Cart() {
 
       <div className='row'>
         <div className='col-lg-12 cart-nav'>
-        <img src={myntra} className="cart-myntra"/>
+        <img src={myntra} className="cart-myntra" onClick={()=>{navigate('/')}}/>
         <img src={secure} className="cart-secure"/>
         </div>
       </div>
@@ -29,8 +42,8 @@ function Cart() {
             <div className='row'>
               <div className='col-lg-12 cart-address'>
                 <div>
-                <div>Deliver to :   <span className='cart-addressname'>Bakya PM</span> </div>
-                <div className='cart-addressmain'>10/5, rajiv gandhi nagar,thiruparankundram</div>
+                <div>Deliver to :   <span className='cart-addressname'>{currentUser.others.name}</span> </div>
+                <div className='cart-addressmain'>{currentUser.others.address}</div>
                 </div>
                 <div>
                   <button type='submit' className='cart-changeaddress' onClick={()=>{setOpen(true)}}>CHANGE ADDRESS</button>
@@ -40,7 +53,12 @@ function Cart() {
                 <TbTruckDelivery/>Yay! <span className='cart-noconveniencefee'>No Convenience fee</span> on this order
                  </div>
                 <div className='col-lg-12 cart-card'>
-                <Cartcard/>
+                
+                {
+                  cartItems.map((item)=>{
+                      return <Cartcard prod={item}/>
+                  })
+                }
                 </div>
               </div>
             </div>

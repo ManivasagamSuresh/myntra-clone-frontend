@@ -15,6 +15,7 @@
     width: 50px;
     margin-left: 30px;
     margin-top: 15px;
+    cursor: pointer;
 }
 .cart-secure{
     margin-right: 30px;

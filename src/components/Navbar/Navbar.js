@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 import myntra from "../../images/myntra.png";
 import { BiSearchAlt2 } from "react-icons/bi";
@@ -18,13 +18,20 @@ function Navbar() {
   const navigate = useNavigate();
   const [OpenV,setOpenV]=useState(false);
   const [OpenP,setOpenP]=useState(false);
-  const [Admin,setAdmin]=useState(true);
+  const [Admin,setAdmin]=useState(false);
 
 const signout = async()=>{
   dispatch(logout());
   localStorage.clear("accessToken");
   navigate('/');
 }
+useEffect(()=>{
+  // console.log(currentUser)
+  if(currentUser?.others.admin == 1){
+    setAdmin(true);
+  };
+},[])
+
 
   return (
     <>
@@ -33,7 +40,7 @@ const signout = async()=>{
     <div className="container">
       <nav className="navbar navbar-expand-lg ">
         <div className="container-fluid">
-        <img src={myntra} className="navbar-myntra-image " />
+        <img src={myntra} className="navbar-myntra-image " onClick={()=>{navigate('/')}}/>
           <button
             className="navbar-toggler"
             type="button"
@@ -52,17 +59,17 @@ const signout = async()=>{
               
 
               <li className="nav-item">
-                <a className="nav-link active"  href="#">
+                <a className="nav-link active"   onClick={()=>{navigate(`/filter/clothing/Men`)}}>
                   MEN
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link active"  href="#">
+                <a className="nav-link active"  onClick={()=>{navigate(`/filter/clothing/Women`)}}>
                   WOMEN
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link active" href="#">
+                <a className="nav-link active" onClick={()=>{navigate(`/filter/clothing/Kids`)}}>
                   KIDS
                 </a>
               </li>
@@ -108,11 +115,11 @@ const signout = async()=>{
             </li>
               :
                   <>
-                    <li className="nav-item navbar-icons-li">
+              <li className="nav-item navbar-icons-li" onClick={()=>{navigate(`/wishlist/${currentUser.others._id}`)}}>
                 <BsHeart size={"1.1em"} />
                 <div className="navbar-icon-desc">Wishlist</div>
               </li>
-              <li className="nav-item navbar-icons-li">
+              <li className="nav-item navbar-icons-li" onClick={()=>{navigate('/cart')}}>
                 <BsHandbag size={"1.2em"} />
                 <div className="navbar-icon-desc">Bag</div>
               </li>    

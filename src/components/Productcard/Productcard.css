@@ -5,6 +5,7 @@
     margin: 20px 20px 20px 15px;
     padding: 20px;
     position: relative;
+    cursor: pointer;
 }
 .productcard-img{
     height: 230px;
@@ -46,6 +47,7 @@
 .productcard-desc{
     /* font-weight: bold; */
     font-size: 14px;
+    color: gray;
 }
 .productcard-price{
     font-weight: bold;
