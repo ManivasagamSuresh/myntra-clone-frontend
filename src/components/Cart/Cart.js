@@ -30,6 +30,45 @@ console.log(TotalMRP);
 console.log(currentUser.others.totalprice);
 
 
+
+
+const finalOrder=(e)=>{
+    
+
+  e.preventDefault();
+  if(TotalMRP==""){alert("please add items to cart")}
+  else{
+    var options = {
+      key :"rzp_test_LclmW435wRbISo",
+      key_secret:"USe8Ksd02FiuTSx8FDZ10vVY",
+      amount: TotalMRP *100,
+      currency: "INR",
+      name:"Myntra",
+      description:"testing purpose",
+      handler : function(response){
+        alert(response.razorpay_payment_id)
+      },
+      prefill:{
+        name:"manivasagam",
+        email:"s.kishore123.64@gmail.com",
+        contact:"9566991210"
+      },
+      notes:{
+        address:"Razor Corporate office"
+      },
+      theme : {
+        color:"#3399cc"
+      }
+    };
+    var pay = new window.Razorpay(options);
+    pay.open();
+  }
+}
+
+
+
+
+
   return (
     <>
     {
@@ -80,7 +119,7 @@ console.log(currentUser.others.totalprice);
                 <div className='cart-mrp'><span>Convenience fee </span><span style={{color:"rgb(34,139,34)"}} >FREE</span></div>
                 <hr/>
                 <div className='cart-mrp'><b>Total Amount </b><b>₹ {TotalMRP}</b></div>
-                 <button type='button' className='cart-button'>PLACE THE ORDER</button>
+                 <button type='button' className='cart-button' onClick={finalOrder}>PLACE THE ORDER</button>
               </div>
             </div>
           </div>
