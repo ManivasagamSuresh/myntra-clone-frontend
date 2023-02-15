@@ -98,13 +98,9 @@ useEffect(()=>{
         OpenP ?
         <div className="navbar-profile">
             {
-              currentUser ? 
+              currentUser && 
               <div onClick={()=>{signout()}}>Logout</div> 
-              :
-              <>
-              <div onClick={()=>{navigate("/signin") ; setOpenP(false)}}>Login</div>
-            <div onClick={()=>{navigate("/signup") ; setOpenP(false)}}>Signup</div>
-              </>
+              
             }
              
       </div>
