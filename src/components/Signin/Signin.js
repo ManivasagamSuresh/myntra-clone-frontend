@@ -8,7 +8,9 @@ import { Config } from '../../Config'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { loginFailure, loginStart, loginSuccess } from '../redux/Userslice'
-
+import myntra from "../../images/myntra.png"
+import secure from "../../images/secure.jpg"
+import "../Cart/Cart.css"
 
 function Signin() {
   const navigate = useNavigate();
@@ -40,7 +42,7 @@ function Signin() {
           dispatch(loginSuccess(user.data));
         localStorage.setItem("accessToken",user.data.token);
         console.log(user.data.message);
-        navigate('/');
+        navigate('/home');
       }
       } catch (error) {
         console.log(error)
@@ -51,11 +53,18 @@ function Signin() {
 
   return (
     <>
-    <Navbar/>
+      <div className='container'>
+          <div className='row'>
+        <div className='col-lg-12 cart-nav'>
+        <img src={myntra} className="cart-myntra" />
+        <img src={secure} className="cart-secure"/>
+        </div>
+      </div>
+      </div> 
     <div className='container signin'>
     <div className='signin-C'>
         <img src={signin} alt="" className='signin-img'/>
-        <h5 className='signin-heading'>Login with Email</h5>
+        <h5 className='signin-heading'>Login with Email to continue..</h5>
         <form className='signin-form' onSubmit={formik.handleSubmit}>
           
           <input className={`signin-inputs form-control ${formik.touched.email && formik.errors.email ? 'error-box':""}
@@ -84,6 +93,10 @@ function Signin() {
           <div className='signin-terms'>By continuing ,I agree to the <span className='signin-terms1'>Terms of Use</span> & <span className='signin-terms1'>Privacy Policy</span></div>
           <button type='submit' className='signin-button'>CONTINUE</button>
         </form>
+        <div className='newuserC'>
+        <div className='newuser'>New User ? </div>
+        <button  className='signin-button' onClick={()=>{navigate('/signup')}}>Signup</button>
+        </div>
     </div>
     </div>
     

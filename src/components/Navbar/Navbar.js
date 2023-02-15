@@ -41,7 +41,7 @@ useEffect(()=>{
     <div className="container">
       <nav className="navbar navbar-expand-lg ">
         <div className="container-fluid">
-        <img src={myntra} className="navbar-myntra-image " onClick={()=>{navigate('/')}}/>
+        <img src={myntra} className="navbar-myntra-image " onClick={()=>{navigate('/home')}}/>
           <button
             className="navbar-toggler"
             type="button"

@@ -79,7 +79,7 @@ const finalOrder=(e)=>{
 
       <div className='row'>
         <div className='col-lg-12 cart-nav'>
-        <img src={myntra} className="cart-myntra" onClick={()=>{navigate('/')}}/>
+        <img src={myntra} className="cart-myntra" onClick={()=>{navigate('/home')}}/>
         <img src={secure} className="cart-secure"/>
         </div>
       </div>

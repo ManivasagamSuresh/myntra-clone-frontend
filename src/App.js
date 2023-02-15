@@ -24,7 +24,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-      <Route path='/' element={<Home/>}/>
+      <Route path='/' element={<Signin/>}/>
+      <Route path='/home' element={<Home/>}/>
       <Route path='/products' element={<Products type={"products"}/>}/>
       <Route path='/filter/clothing/:clothing' element={<Genderproducts />}/>
       <Route path='/filter/categories/:category' element={<Categoryproducts/>}/>

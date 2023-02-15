@@ -9,13 +9,14 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { AddcartR, RemovewishlistR } from '../redux/Userslice';
 
+
 function Wishlistcard({prod}) {
 // console.log(prod);
 const dispatch = useDispatch();
 const {currentUser}=useSelector(state=>state.user);
 const [product,setProduct]=useState([]);
 const navigate = useNavigate();
-
+const [Cart,setCart]=useState(false);
 
 useEffect(()=>{
   let Produts = async()=>{
@@ -27,7 +28,13 @@ useEffect(()=>{
   Produts();
 },[prod])
 
-      
+   
+useEffect(()=>{
+  if((currentUser.others.cart).includes(product._id)){
+    setCart(true);
+  }
+})
+
 let Removewish = async()=>{
   try {
     console.log(prod);
@@ -68,7 +75,7 @@ let Addcart = async()=>{
         <span className='Wishlistcard-brand'>{product.brand}</span>
         <span className='Wishlistcard-desc'>{product.description}</span>
         <div className='Wishlistcard-price'>Rs. {product.price}</div>
-        <div className='Wishlistcard-Cart' onClick={()=>{Addcart()}}><button type='button' className='Wishlistcard-cartbutton'>Move to Bag</button></div> 
+        <div className='Wishlistcard-Cart' >{Cart?<button className='Wishlistcard-cartbutton' onClick={()=>{navigate("/cart")}}>In Cart</button>:<button type='button' className='Wishlistcard-cartbutton' onClick={()=>{Addcart()}}>Move to Bag</button>}</div> 
         </div>
     </div>
   )

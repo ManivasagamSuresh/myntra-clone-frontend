@@ -6,7 +6,9 @@ import { useFormik } from 'formik'
 import axios from 'axios'
 import { Config } from '../../Config'
 import {  useNavigate } from 'react-router-dom'
-
+import myntra from "../../images/myntra.png"
+import secure from "../../images/secure.jpg"
+import "../Cart/Cart.css"
 
 function Signup() {
   const navigate = useNavigate();
@@ -60,7 +62,14 @@ function Signup() {
   
   return (
     <>
-    <Navbar/>
+    <div className='container'>
+          <div className='row'>
+        <div className='col-lg-12 cart-nav'>
+        <img src={myntra} className="cart-myntra" />
+        <img src={secure} className="cart-secure"/>
+        </div>
+      </div>
+      </div>
     <div className='container signup'>
     <div className='signup-C'>
         <img src={signin} alt="" className='signup-img'/>
