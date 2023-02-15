@@ -14,7 +14,7 @@ import { logout } from "../redux/Userslice";
 function Navbar() {
   const {currentUser}=useSelector(state=>state.user);
   const dispatch = useDispatch();
-  console.log(currentUser);
+  // console.log(currentUser);
   const navigate = useNavigate();
   const [OpenV,setOpenV]=useState(false);
   const [OpenP,setOpenP]=useState(false);

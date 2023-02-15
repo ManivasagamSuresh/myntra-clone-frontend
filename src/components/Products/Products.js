@@ -36,14 +36,14 @@ function Products({type}) {
     //   let prod= await axios.get(`${Config.api}/user/${currentUser.others._id}`,
     //   {headers:{"Authorization":localStorage.getItem("accessToken")}});
       // console.log(prod.data);
-      let prod = currentUser.others.wishlist;
+      let prod = currentUser?.others.wishlist;
       setWish(prod);
       // setProducts(filter);
 
       // console.log(currentUser.others.wishlist);
     // }
     // wish();
-  },[currentUser.others.wishlist]);
+  },[currentUser?.others.wishlist]);
 
 
   // let Filter=(e)=>{
