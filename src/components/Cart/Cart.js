@@ -8,6 +8,7 @@ import Address from '../Address/Address';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { current } from '@reduxjs/toolkit';
 
 
 function Cart() {
@@ -20,6 +21,13 @@ function Cart() {
 useEffect(()=>{
   setCartItems(currentUser.others.cart)
 },[currentUser.others.cart])
+
+let TotalMRP = currentUser.others.totalprice.reduce((acc,curr)=>{
+  return (acc=acc+curr.price);
+},0) 
+console.log(TotalMRP);
+
+console.log(currentUser.others.totalprice);
 
 
   return (
@@ -68,10 +76,10 @@ useEffect(()=>{
             <div className='row'>
               <div className='col-lg-12 cart-placeorder'>
                 <div className='cart-pricedetail'>PRICE DETAILS</div>
-                <div className='cart-mrp'><span>Total MRP </span><span>₹ 2106</span></div>
+                <div className='cart-mrp'><span>Total MRP </span><span>₹ {TotalMRP}</span></div>
                 <div className='cart-mrp'><span>Convenience fee </span><span style={{color:"rgb(34,139,34)"}} >FREE</span></div>
                 <hr/>
-                <div className='cart-mrp'><b>Total Amount </b><b>₹ 2106</b></div>
+                <div className='cart-mrp'><b>Total Amount </b><b>₹ {TotalMRP}</b></div>
                  <button type='button' className='cart-button'>PLACE THE ORDER</button>
               </div>
             </div>

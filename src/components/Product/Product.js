@@ -10,7 +10,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { Config } from '../../Config'
 import { useDispatch, useSelector } from 'react-redux'
-import { AddwishlistR } from '../redux/Userslice'
+import { AddcartR, AddwishlistR } from '../redux/Userslice'
 
 
 
@@ -22,6 +22,7 @@ function Product() {
   const [Wish,setWish] = useState(false);
     const[Admin,setAdmin]=useState(false);
     const [Product,setProduct]=useState([])
+    const [Cart,setCart]=useState(false);
    
     useEffect(()=>{
       
@@ -42,7 +43,10 @@ function Product() {
         if((currentUser.others.wishlist).includes(params.id)){
           setWish(true);
         }
-      },[currentUser.others.wishlist])
+        if((currentUser.others.cart).includes(params.id)){
+          setCart(true);
+        }
+      },[currentUser.others.wishlist,currentUser.others.cart])
 
       let Addwish=async()=>{
         let wishid = await axios.put(`${Config.api}/wishId/${currentUser.others._id}`,{pId:params.id},
@@ -56,6 +60,14 @@ function Product() {
       {headers:{"Authorization":localStorage.getItem("accessToken")}}) 
       alert("Product deleted");
       navigate("/products")
+    }
+
+
+    let Addcart = async()=>{
+      let cartId = await axios.put(`${Config.api}/cartId/${currentUser.others._id}`,{pId:Product._id},
+    {headers:{"Authorization":localStorage.getItem("accessToken")}});
+    
+    dispatch(AddcartR(Product._id));
     }
 
   return (
@@ -77,7 +89,7 @@ function Product() {
                 <button type='button' className='product-button4' onClick={()=>{deleteProd()}}>DELETE PRODUCT</button>
                 </>
                 :<>
-                <button type='button' className='product-button1'><BsHandbag/> Add to Bag</button>
+                <button type='button' className='product-button1' >{Cart?<div onClick={()=>{navigate('/cart')}}><BsHandbag/> In Bag  </div>:<div onClick={Addcart}><BsHandbag/> Add to Bag</div>}</button>
                 <button type='button' className='product-button2'>{Wish ? <><BsHeartFill className='product-heartfill'/> WISHLISTED</> :<div onClick={()=>{Addwish()}}><BsHeart/> WISHLIST </div>}</button>
                 </>}
                 

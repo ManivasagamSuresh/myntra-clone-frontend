@@ -1,0 +1,14 @@
+.Search{
+    background-color: #FAF9F6;
+}
+.Search-filter{
+    display: flex;
+    justify-content: flex-end;
+    
+}
+.Search-filterselect{
+    margin: 20px 20px;
+    border-radius: 2px;
+    border: 1px solid #E2DFD2;
+    padding: 7px;
+}

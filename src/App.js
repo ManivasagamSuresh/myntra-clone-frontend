@@ -17,6 +17,7 @@ import Editproduct from './components/Editproduct/Editproduct';
 import Genderproducts from './components/genderProducts/Genderproducts';
 import Categoryproducts from './components/Categoryproducts/Categoryproducts';
 import Genderprice from './components/genderprice/Genderprice';
+import Search from './components/Search/Search';
 
 
 function App() {
@@ -27,7 +28,8 @@ function App() {
       <Route path='/products' element={<Products type={"products"}/>}/>
       <Route path='/filter/clothing/:clothing' element={<Genderproducts />}/>
       <Route path='/filter/categories/:category' element={<Categoryproducts/>}/>
-      <Route path='/filter/genderprice/:clothing' element={<Genderprice/>}/>      
+      <Route path='/filter/genderprice/:clothing' element={<Genderprice/>}/>
+      <Route path='/Searchproducts/:brand' element={<Search/>}/>      
       <Route path='/product/:id' element={<Product/>}/>
       <Route path='/wishlist/:id' element={<Wishlist/>}/>
       <Route path='/cart' element={<Cart/>}/>

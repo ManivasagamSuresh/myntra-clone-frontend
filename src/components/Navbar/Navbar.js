@@ -19,6 +19,7 @@ function Navbar() {
   const [OpenV,setOpenV]=useState(false);
   const [OpenP,setOpenP]=useState(false);
   const [Admin,setAdmin]=useState(false);
+  const [Search,setSearch]=useState('');
 
 const signout = async()=>{
   dispatch(logout());
@@ -80,8 +81,11 @@ useEffect(()=>{
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
+                onChange={(e)=>{setSearch(e.target.value);
+                  
+                }}
               />
-              <button className="navbar-search" type="submit">
+              <button className="navbar-search" type="submit" onClick={()=>{navigate(`/Searchproducts/${Search}`)}}>
                 <BiSearchAlt2 />
               </button>
             </form>

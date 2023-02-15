@@ -40,7 +40,7 @@ let Removewish = async()=>{
     
     // window.location.reload()
   } catch (error) {
-    
+    console.log(error)
   }
   
 }
@@ -52,7 +52,7 @@ let Addcart = async()=>{
     let {_id,...prod} = product;
     // let cart = await axios.post(`${Config.api}/addcart`,prod,
     // {headers:{"Authorization":localStorage.getItem("accessToken")}})
-    let cartId = await axios.put(`${Config.api}/cartId/${currentUser.others._id}`,prod,
+    let cartId = await axios.put(`${Config.api}/cartId/${currentUser.others._id}`,{pId:_id},
     {headers:{"Authorization":localStorage.getItem("accessToken")}});
     Removewish();
     dispatch(AddcartR(product._id));

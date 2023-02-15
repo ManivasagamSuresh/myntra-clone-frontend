@@ -54,13 +54,34 @@ export const userSlice = createSlice({
             
             state.currentUser.others.cart.push(action.payload);
         },
-        RemovecardR :(state,action)=>{
+        RemovecartR :(state,action)=>{
             state.currentUser.others.cart.splice(state.currentUser.others.cart.findIndex((ele)=>
                       ele == action.payload  ),1);
-        }
+        },
+        TotalPrice :(state,action)=>{
+            let index = state.currentUser.others.totalprice.findIndex((ele)=> ele.id == action.payload.id);
+            if(index == -1){
+                state.currentUser.others.totalprice.push(action.payload);
+            }else{
+                state.currentUser.others.totalprice.splice(index,1,action.payload);
+            }
+        },
+        RemoveTotalPrice :(state,action)=>{
+            let index = state.currentUser.others.totalprice.findIndex((ele)=> ele.id == action.payload.id);
+            
+                state.currentUser.others.totalprice.splice(index,1);
+            
+        },
+        ChangePrice :(state,action)=>{
+            let index = state.currentUser.others.totalprice.findIndex((ele)=> ele.id == action.payload.id);
+            if(index != -1){
+                
+            state.currentUser.others.totalprice.splice(index,1,action.payload);}
+        },
     }
 })
 
-export const {loginStart,loginSuccess,loginFailure,logout,changeAddress,AddwishlistR,RemovewishlistR,AddcartR}=userSlice.actions;
+export const {loginStart,loginSuccess,loginFailure,logout,changeAddress,AddwishlistR,
+    RemovewishlistR,AddcartR,RemovecartR, TotalPrice, ChangePrice,RemoveTotalPrice}=userSlice.actions;
 
 export default userSlice.reducer;
