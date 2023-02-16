@@ -60,7 +60,7 @@ function Cart() {
         name: "Myntra",
         description: "testing purpose",
         handler: function (response) {
-          alert(response.razorpay_payment_id);
+          alert("Order Placed");
           dispatch(Emptycart());
           dispatch(EmptyTotalprice());
           EmptycartArray();
