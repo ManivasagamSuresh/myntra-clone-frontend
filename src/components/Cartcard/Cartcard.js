@@ -13,7 +13,7 @@ import {
 } from "../redux/Userslice";
 
 function Cartcard({ prod }) {
-  console.log(prod);
+  // console.log(prod);
   const [Product, setProduct] = useState([]);
   const { currentUser } = useSelector((state) => state.user);
   const dispatch = useDispatch();
@@ -27,7 +27,7 @@ function Cartcard({ prod }) {
       });
       setProduct(data.data);
       let p = { id: data.data._id, price: data.data.price };
-      console.log(p);
+      // console.log(p);
       // settotal(data.data.price)
       // console.log(data);
       dispatch(TotalPrice(p));
@@ -41,9 +41,9 @@ function Cartcard({ prod }) {
 
     // settotal(Total);
     // console.log(total);
-    console.log({ id: Product._id, price: Product.price * Qty });
+    // console.log({ id: Product._id, price: Product.price * Qty });
     dispatch(ChangePrice({ id: Product._id, price: Product.price * Qty }));
-    console.log(currentUser.others.totalprice);
+    // console.log(currentUser.others.totalprice);
   }, [Qty]);
 
   let RemoveCart = async () => {
@@ -53,7 +53,7 @@ function Cartcard({ prod }) {
         { pId: prod },
         { headers: { Authorization: localStorage.getItem("accessToken") } }
       );
-      console.log(remove.data);
+      // console.log(remove.data);
       dispatch(RemovecartR(prod));
       dispatch(RemoveTotalPrice({ id: Product._id, price: Product.price }));
     } catch (error) {

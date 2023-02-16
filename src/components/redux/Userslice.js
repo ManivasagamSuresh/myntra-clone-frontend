@@ -56,6 +56,12 @@ export const userSlice = createSlice({
         1
       );
     },
+    Emptycart: (state, action) => {
+      state.currentUser.others.cart.length = 0; 
+    },
+    EmptyTotalprice: (state, action) => {
+      state.currentUser.others.totalprice.length = 0; 
+    },
     TotalPrice: (state, action) => {
       let index = state.currentUser.others.totalprice.findIndex(
         (ele) => ele.id == action.payload.id
@@ -97,6 +103,8 @@ export const {
   TotalPrice,
   ChangePrice,
   RemoveTotalPrice,
+  Emptycart,
+  EmptyTotalprice
 } = userSlice.actions;
 
 export default userSlice.reducer;

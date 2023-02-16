@@ -5,27 +5,47 @@ import Cartcard from "../Cartcard/Cartcard";
 import secure from "../../images/secure.jpg";
 import myntra from "../../images/myntra.png";
 import Address from "../Address/Address";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Emptycart, EmptyTotalprice, RemoveTotalPrice } from "../redux/Userslice";
+import { Config } from "../../Config";
 
 function Cart() {
   const { currentUser } = useSelector((state) => state.user);
   const [Open, setOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
+  const dispatch = useDispatch();
+  const [TotalMRP,setTotalMRP]=useState(0);
 
   const navigate = useNavigate();
 
   useEffect(() => {
     setCartItems(currentUser.others.cart);
+    let MRP = currentUser.others.totalprice.reduce((acc, curr) => {
+      return (acc = acc + curr.price);
+    }, 0);
+    setTotalMRP(MRP);
+
   }, [currentUser.others.cart]);
 
-  let TotalMRP = currentUser.others.totalprice.reduce((acc, curr) => {
-    return (acc = acc + curr.price);
-  }, 0);
-  console.log(TotalMRP);
-
-  console.log(currentUser.others.totalprice);
+  
+  useEffect(() => {
+    
+    let MRP = currentUser.others.totalprice.reduce((acc, curr) => {
+      return (acc = acc + curr.price);
+    }, 0);
+    setTotalMRP(MRP);
+  }, [currentUser.others.cart,currentUser.others.totalprice]);
+  
+  const EmptycartArray =async()=>{
+    try {
+      let empty = await axios.put(`${Config.api}/emptycart/${currentUser.others._id}`);
+      console.log(empty.data);
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   const finalOrder = (e) => {
     e.preventDefault();
@@ -41,6 +61,9 @@ function Cart() {
         description: "testing purpose",
         handler: function (response) {
           alert(response.razorpay_payment_id);
+          dispatch(Emptycart());
+          dispatch(EmptyTotalprice());
+          EmptycartArray();
         },
         prefill: {
           name: "manivasagam",
