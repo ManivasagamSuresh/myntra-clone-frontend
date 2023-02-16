@@ -16,7 +16,8 @@ function Wishlist() {
   useEffect(() => {
     console.log(currentUser.others.wishlist);
     setProduct(currentUser.others.wishlist);
-  });
+    // window.location.reload();
+  },[currentUser.others.wishlist]);
 
   return (
     <>

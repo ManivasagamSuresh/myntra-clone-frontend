@@ -14,7 +14,8 @@ import { logout } from "../redux/Userslice";
 function Navbar() {
   const { currentUser } = useSelector((state) => state.user);
   const dispatch = useDispatch();
-  // console.log(currentUser);
+  const [cart,setCartlength]=useState(0);
+  
   const navigate = useNavigate();
   const [OpenV, setOpenV] = useState(false);
   const [OpenP, setOpenP] = useState(false);
@@ -31,8 +32,12 @@ function Navbar() {
     if (currentUser?.others.admin == 1) {
       setAdmin(true);
     }
+    
   }, []);
 
+  useEffect(()=>{
+    setCartlength(currentUser.others.cart);
+  },[currentUser.others.cart])
   return (
     <>
       {OpenV ? (
@@ -175,6 +180,7 @@ function Navbar() {
                         }}
                       >
                         <BsHandbag size={"1.2em"} />
+                        {cart.length == 0?null: <div className="navbar-cartcount">{cart.length}</div>}
                         <div className="navbar-icon-desc">Bag</div>
                       </li>
                     </>

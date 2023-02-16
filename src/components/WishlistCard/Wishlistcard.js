@@ -24,15 +24,18 @@ function Wishlistcard({ prod }) {
       });
       setProduct(data.data);
       // console.log(data.data);
+      if (currentUser.others.cart.includes(data.data._id)) {
+        setCart(true);
+      }
     };
     Produts();
   }, [prod]);
 
-  useEffect(() => {
-    if (currentUser.others.cart.includes(product._id)) {
-      setCart(true);
-    }
-  });
+  // useEffect(() => {
+  //   if (currentUser.others.cart.includes(product._id)) {
+  //     setCart(true);
+  //   }
+  // },[prod]);
 
   let Removewish = async () => {
     try {

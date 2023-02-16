@@ -68,3 +68,17 @@
     color: gray;
     z-index: 1;
 }
+.navbar-cartcount{
+    background-color: rgb(220, 20, 60,0.7);
+    border-radius: 50%;
+    font-size: 12px;
+    width: 17px;
+    height: 17px;
+    color: white;
+    text-align: center;
+    font-weight: 500;
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    font-family: 'Times New Roman', Times, serif;
+}
