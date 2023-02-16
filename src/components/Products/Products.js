@@ -16,7 +16,7 @@ function Products({ type }) {
   const [Wish, setWish] = useState([]);
   const [Products, setProducts] = useState([]);
   const [filter, setFilter] = useState([]);
-  const [loading, setloading] = useState(false);
+  const [loading, setloading] = useState(true);
 
   useEffect(() => {
     setloading(true);

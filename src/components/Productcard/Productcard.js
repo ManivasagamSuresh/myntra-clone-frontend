@@ -35,7 +35,7 @@ function Productcard({ product, Wish }) {
   useEffect(() => {
     
     const a = Wish.includes(product._id);
-    console.log(a);
+    // console.log(a);
     if (a) {
       setWished(true);
     } else {
