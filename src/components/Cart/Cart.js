@@ -64,6 +64,7 @@ function Cart() {
           dispatch(Emptycart());
           dispatch(EmptyTotalprice());
           EmptycartArray();
+          navigate("/home");
         },
         prefill: {
           name: "manivasagam",
