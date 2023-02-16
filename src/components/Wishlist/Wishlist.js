@@ -8,19 +8,13 @@ import Navbar from '../Navbar/Navbar'
 import Wishlistcard from '../WishlistCard/Wishlistcard'
 import "./Wishlist.css"
 
+
+
 function Wishlist() {
   const params = useParams()
   const[Product,setProduct]=useState([]);
   const {currentUser}=useSelector(state=>state.user);
-  // useEffect(()=>{
-  //   let wish =async()=>{
-  //     let prod= await axios.get(`${Config.api}/user/${currentUser.others._id}`,
-  //     {headers:{"Authorization":localStorage.getItem("accessToken")}});
-  //     console.log(prod.data.wishlist);
-  //     setProduct(prod.data.wishlist);
-  //   }
-  //   wish();
-  // },[])
+  
 
   useEffect(()=>{
     console.log(currentUser.others.wishlist);

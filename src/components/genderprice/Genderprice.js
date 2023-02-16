@@ -7,6 +7,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { Config } from '../../Config'
 import { useSelector } from 'react-redux'
+import loader from "../../images/preloader1.gif"
 
 function Genderprice({type}) {
   const params = useParams()
@@ -14,12 +15,13 @@ function Genderprice({type}) {
   const {currentUser}=useSelector(state=>state.user)
   const [ Wish,setWish]=useState([]);
   const [filter,setFilter]=useState('');
+  const [loading ,setloading]=useState(false);
   const navigate=useNavigate();
 
 
   useEffect(()=>{
+    setloading(true);
     const product= async()=>{
-        // console.log(params.clothing);
       var allProducts = await axios.get(`${Config.api}/filter/genderprice/${params.clothing}`,
       {headers:{"Authorization":localStorage.getItem("accessToken")}}) ;
       console.log(allProducts.data);
@@ -27,16 +29,10 @@ function Genderprice({type}) {
 
     }
     product();
+    setloading(false);
   },[params.clothing])
 
   useEffect(()=>{
-    // let wish =async()=>{
-    //   let prod= await axios.get(`${Config.api}/wishlist/${currentUser.others._id}`,
-    //   {headers:{"Authorization":localStorage.getItem("accessToken")}});
-    //   console.log(prod.data);
-    //   setWish(prod.data);
-    // }
-    // wish();
     let prod = currentUser.others.wishlist;
       setWish(prod);
   },[currentUser.others.wishlist])
@@ -44,6 +40,7 @@ function Genderprice({type}) {
   return (
     <>
     <Navbar/>
+    {loading? <div className="container loader"><img src={loader} alt="" height={"80px"}/></div>:
     <div className='container'>
       <div className='row'>
       <div className='col-lg-12'>
@@ -95,7 +92,7 @@ function Genderprice({type}) {
         </div>
         
       
-    </div>
+    </div>}
     <Footer/>
     </>
   )

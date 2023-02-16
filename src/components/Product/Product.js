@@ -11,6 +11,7 @@ import axios from 'axios'
 import { Config } from '../../Config'
 import { useDispatch, useSelector } from 'react-redux'
 import { AddcartR, AddwishlistR } from '../redux/Userslice'
+import loader from "../../images/preloader1.gif"
 
 
 
@@ -23,15 +24,17 @@ function Product() {
     const[Admin,setAdmin]=useState(false);
     const [Product,setProduct]=useState([])
     const [Cart,setCart]=useState(false);
+    const [loading ,setloading]=useState(false);
    
     useEffect(()=>{
-      
+      setloading(true);
       let item = async()=>{
         let prod = await axios.get(`${Config.api}/product/${params.id}`,
         {headers:{"Authorization":localStorage.getItem("accessToken")}});
         setProduct(prod.data);
       }
       item();
+      setloading(false);
     },[])
 
 
@@ -73,6 +76,7 @@ function Product() {
   return (
     <>
     <Navbar/>
+    {loading? <div className="container loader"><img src={loader} alt="" height={"80px"}/></div>:
     <div className='container'>
     <div className='row product'>
         <div className='col-lg-6 product-i'>
@@ -105,7 +109,7 @@ function Product() {
             </div>
         </div>
     </div>
-    </div>
+    </div>}
     <Footer/>
     </>
     

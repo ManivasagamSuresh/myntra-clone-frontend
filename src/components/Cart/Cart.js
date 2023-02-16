@@ -8,13 +8,14 @@ import Address from '../Address/Address';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { current } from '@reduxjs/toolkit';
+
 
 
 function Cart() {
   const {currentUser}=useSelector(state=>state.user);
   const [Open,setOpen]=useState(false);
   const [cartItems,setCartItems]=useState([]);
+  
   const navigate = useNavigate();
 
 

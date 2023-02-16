@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from '../Navbar/Navbar'
 import "./Signin.css"
 import signin from "../../images/login.png"
@@ -11,10 +11,13 @@ import { loginFailure, loginStart, loginSuccess } from '../redux/Userslice'
 import myntra from "../../images/myntra.png"
 import secure from "../../images/secure.jpg"
 import "../Cart/Cart.css"
+import loader from "../../images/preloader1.gif"
+
 
 function Signin() {
   const navigate = useNavigate();
   const dispatch= useDispatch();
+  const [signing ,setSigning]=useState(false);
   const formik = useFormik({
     initialValues:{
       email : "",
@@ -35,14 +38,19 @@ function Signin() {
     },
     onSubmit: async(values)=>{
       try {
+        setSigning(true);
         dispatch(loginStart());
-        const user = await axios.post(`${Config.api}/signin`,values)
+        const user = await axios.post(`${Config.api}/signin`,values);
+        
         
         if(user.data.message === "success"){
           dispatch(loginSuccess(user.data));
         localStorage.setItem("accessToken",user.data.token);
         console.log(user.data.message);
+        
+          setSigning(false);
         navigate('/home');
+        
       }
       } catch (error) {
         console.log(error)
@@ -91,7 +99,7 @@ function Signin() {
             formik.touched.password && formik.errors.password ? <span className='error-span'>{formik.errors.password}</span> : null
           }
           <div className='signin-terms'>By continuing ,I agree to the <span className='signin-terms1'>Terms of Use</span> & <span className='signin-terms1'>Privacy Policy</span></div>
-          <button type='submit' className='signin-button'>CONTINUE</button>
+          {signing?<button type='button' className='signin-button'>Signing In <img src={loader} alt="" height={"25px"} style={{marginLeft:"10px"}}/> </button>:<button type='submit' className='signin-button'>CONTINUE</button>}
         </form>
         <div className='newuserC'>
         <div className='newuser'>New User ? </div>
