@@ -92,3 +92,8 @@
     font-weight: 600;
     width: 100%;
 }
+.nocart{
+    font-size: 13px;
+    color: rgba(241,58,131,0.8);
+    cursor: pointer;
+}
