@@ -108,13 +108,14 @@ function Navbar() {
                     aria-label="Search"
                     onChange={(e) => {
                       setSearch(e.target.value);
+                      navigate(`/Searchproducts?q=${Search}`)
                     }}
                   />
                   <button
                     className="navbar-search"
                     type="submit"
                     onClick={() => {
-                      navigate(`/Searchproducts/${Search}`);
+                      navigate(`/Searchproducts?q=${Search}`);
                     }}
                   >
                     <BiSearchAlt2 />

@@ -3,7 +3,7 @@ import "./Search.css";
 import Productcard from "../Productcard/Productcard";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import axios from "axios";
 import { Config } from "../../Config";
 import { useSelector } from "react-redux";
@@ -18,11 +18,15 @@ function Search({ type }) {
   const [filter, setFilter] = useState([]);
   const [loading, setloading] = useState(false);
 
+  const q = useLocation().Searchproducts;
+  let [searchParams]=useSearchParams();
+  let query = searchParams.get("q");  
+  console.log(q);
   useEffect(() => {
     setloading(true);
     const product = async () => {
       var allProducts = await axios.get(
-        `${Config.api}/searchproducts/${params.brand}`,
+        `${Config.api}/searchproducts?q=${query}`,
         { headers: { Authorization: localStorage.getItem("accessToken") } }
       );
 
@@ -30,7 +34,7 @@ function Search({ type }) {
     };
     product();
     setloading(false);
-  }, []);
+  }, [query]);
 
   useEffect(() => {
     let prod = currentUser.others.wishlist;

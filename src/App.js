@@ -30,7 +30,7 @@ function App() {
       <Route path='/filter/clothing/:clothing' element={<Genderproducts />}/>
       <Route path='/filter/categories/:category' element={<Categoryproducts/>}/>
       <Route path='/filter/genderprice/:clothing' element={<Genderprice/>}/>
-      <Route path='/Searchproducts/:brand' element={<Search/>}/>      
+      <Route path='/Searchproducts' element={<Search/>}/>      
       <Route path='/product/:id' element={<Product/>}/>
       <Route path='/wishlist/:id' element={<Wishlist/>}/>
       <Route path='/cart' element={<Cart/>}/>
