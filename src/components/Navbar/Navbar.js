@@ -108,7 +108,7 @@ function Navbar() {
                     aria-label="Search"
                     onChange={(e) => {
                       setSearch(e.target.value);
-                      navigate(`/Searchproducts?q=${Search}`)
+                      // navigate(`/Searchproducts?q=${Search}`)
                     }}
                   />
                   <button
