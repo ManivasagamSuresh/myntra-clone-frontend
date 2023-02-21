@@ -22,7 +22,7 @@ function Product() {
   const [Admin, setAdmin] = useState(false);
   const [Product, setProduct] = useState([]);
   const [Cart, setCart] = useState(false);
-  const [loading, setloading] = useState(false);
+  const [loading, setloading] = useState(true);
 
   useEffect(() => {
     setloading(true);
@@ -77,13 +77,17 @@ function Product() {
   };
 
   return (
+    
+    
     <>
       <Navbar />
-      {loading ? (
-        <div className="container loader">
-          <img src={loader} alt="" height={"80px"} />
-        </div>
-      ) : (
+
+    { loading ?   
+      <div className="container loader">
+        <img src={loader} alt="" height={"80px"} />
+      </div>  
+      :  
+      
         <div className="container">
           <div className="row product">
             <div className="col-lg-6 product-i">
@@ -171,7 +175,7 @@ function Product() {
             </div>
           </div>
         </div>
-      )}
+} 
       <Footer />
     </>
   );

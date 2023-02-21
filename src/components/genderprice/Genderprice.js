@@ -40,11 +40,11 @@ function Genderprice({ type }) {
   return (
     <>
       <Navbar />
-      {loading ? (
+      {loading ? 
         <div className="container loader">
           <img src={loader} alt="" height={"80px"} />
         </div>
-      ) : (
+       : 
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
@@ -101,7 +101,7 @@ function Genderprice({ type }) {
             })}
           </div>
         </div>
-      )}
+      }
       <Footer />
     </>
   );
