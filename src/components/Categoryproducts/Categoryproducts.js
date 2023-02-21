@@ -29,7 +29,9 @@ function Categoryproducts() {
       setProducts(allProducts.data);
     };
     product();
-    setloading(false);
+    setTimeout(()=>{
+      setloading(false);
+    },300)
   }, [params.category]);
 
   useEffect(() => {

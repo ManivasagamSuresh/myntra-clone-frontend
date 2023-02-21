@@ -29,7 +29,9 @@ function Genderprice({ type }) {
       setProducts(allProducts.data);
     };
     product();
-    setloading(false);
+    setTimeout(()=>{
+      setloading(false);
+    },300)
   }, [params.clothing]);
 
   useEffect(() => {
