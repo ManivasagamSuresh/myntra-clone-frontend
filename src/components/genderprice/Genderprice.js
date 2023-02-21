@@ -31,7 +31,7 @@ function Genderprice({ type }) {
     product();
     setTimeout(()=>{
       setloading(false);
-    },300)
+    },200)
   }, [params.clothing]);
 
   useEffect(() => {

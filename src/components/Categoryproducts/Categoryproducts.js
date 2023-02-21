@@ -31,7 +31,7 @@ function Categoryproducts() {
     product();
     setTimeout(()=>{
       setloading(false);
-    },300)
+    },200)
   }, [params.category]);
 
   useEffect(() => {
