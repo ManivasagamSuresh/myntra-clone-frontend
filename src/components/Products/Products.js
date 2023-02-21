@@ -29,7 +29,7 @@ function Products({ type }) {
     product();
     setTimeout(()=>{
       setloading(false);
-    },2000) 
+    },500) 
   }, []);
 
   useEffect(() => {
