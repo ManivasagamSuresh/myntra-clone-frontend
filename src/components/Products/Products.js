@@ -27,7 +27,9 @@ function Products({ type }) {
       setProducts(allProducts.data);
     };
     product();
-    setloading(false);
+    setTimeout(()=>{
+      setloading(false);
+    },2000) 
   }, []);
 
   useEffect(() => {
