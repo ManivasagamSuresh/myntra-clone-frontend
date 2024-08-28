@@ -53,8 +53,8 @@ function Cart() {
       alert("please add items to cart");
     } else {
       var options = {
-        key: "rzp_test_LclmW435wRbISo",
-        key_secret: "USe8Ksd02FiuTSx8FDZ10vVY",
+        key: "rzp_test_diMdipPKrcdCOl",
+        key_secret: "IuOU70fjnwEzITn5aQNMBvsp",
         amount: TotalMRP * 100,
         currency: "INR",
         name: "Myntra",
