@@ -29,9 +29,7 @@ function Signin() {
       }
       if (
         values.email &&
-        !/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
-          values.email
-        )
+        !/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(values.email)
       ) {
         error.email = "please enter a valid Email";
       }
@@ -94,15 +92,9 @@ function Signin() {
 
             <input
               className={`signin-inputs form-control ${
-                formik.touched.password && formik.errors.password
-                  ? "error-box"
-                  : ""
+                formik.touched.password && formik.errors.password ? "error-box" : ""
               }
-        ${
-          formik.touched.password && !formik.errors.password
-            ? "success-box"
-            : ""
-        }`}
+        ${formik.touched.password && !formik.errors.password ? "success-box" : ""}`}
               placeholder="Password"
               type={"password"}
               name="password"
@@ -115,19 +107,13 @@ function Signin() {
               <span className="error-span">{formik.errors.password}</span>
             ) : null}
             <div className="signin-terms">
-              By continuing ,I agree to the{" "}
-              <span className="signin-terms1">Terms of Use</span> &{" "}
+              By continuing ,I agree to the <span className="signin-terms1">Terms of Use</span> &{" "}
               <span className="signin-terms1">Privacy Policy</span>
             </div>
             {signing ? (
               <button type="button" className="signin-button">
                 Signing In{" "}
-                <img
-                  src={loader}
-                  alt=""
-                  height={"25px"}
-                  style={{ marginLeft: "10px" }}
-                />{" "}
+                <img src={loader} alt="" height={"25px"} style={{ marginLeft: "10px" }} />{" "}
               </button>
             ) : (
               <button type="submit" className="signin-button">
@@ -145,6 +131,10 @@ function Signin() {
             >
               Signup
             </button>
+            <div className='Cred-button' style={{marginTop:'16px'}}>
+              <div>Email: test@gmail.com</div>
+              <div>Pass: test</div>
+            </div>
           </div>
         </div>
       </div>
